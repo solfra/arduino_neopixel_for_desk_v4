@@ -32,6 +32,11 @@ int memoire = HIGH;
 int etatBouton;
 int colorBP = 0;
 
+// définition de la memoire du bouton poussoire 1
+int memoire2 = HIGH;
+int etatBouton2;
+int dimensionBP = 0;
+
 // définition des couleurs princiopalement utilisé
 
 uint32_t blanc = led.Color(255, 255, 255); 
@@ -110,59 +115,18 @@ void loop()
 
 void normal()
 {
-  val = analogRead(potensLin);
-  val = map(val, 0, 1023, 0, 255);
-  led.setBrightness(val);
-  led.setPixelColor(0, blanc);
-  led.setPixelColor(1, blanc);
-  led.setPixelColor(2, blanc);
-  led.setPixelColor(3, blanc);
-  led.setPixelColor(4, blanc);
-  led.setPixelColor(5, blanc);
-  led.setPixelColor(6, blanc);
-  led.setPixelColor(7, blanc);
-  led.setPixelColor(8, blanc);
-  led.setPixelColor(9, blanc);
-  led.setPixelColor(10, blanc);
-  led.setPixelColor(11, blanc);
-  led.setPixelColor(12, blanc);
-  led.setPixelColor(13, blanc);
-  led.setPixelColor(14, blanc);
-  led.setPixelColor(15, blanc);
-  led.setPixelColor(16, blanc);
-  led.setPixelColor(17, blanc);
-  led.setPixelColor(18, blanc);
-  led.setPixelColor(19, blanc);
-  led.setPixelColor(20, blanc);
-  led.setPixelColor(21, blanc);
-  led.setPixelColor(22, blanc);
-  led.setPixelColor(23, blanc);
-  led.setPixelColor(24, blanc);
-  led.setPixelColor(25, blanc);
-  led.setPixelColor(26, blanc);
-  led.setPixelColor(27, blanc);
-  led.setPixelColor(28, blanc);
-  led.setPixelColor(29, blanc);
-  led.setPixelColor(30, blanc);
-  led.setPixelColor(31, blanc);
-  led.setPixelColor(32, blanc);
-  led.setPixelColor(33, blanc);
-  led.setPixelColor(34, blanc);
-  led.setPixelColor(35, blanc);
-  led.setPixelColor(36, blanc);
-  led.setPixelColor(37, blanc);
-  led.setPixelColor(38, blanc);
-  led.setPixelColor(39, blanc);
-  led.setPixelColor(40, blanc);
-  led.setPixelColor(41, blanc);
-  led.setPixelColor(42, blanc);
-  led.setPixelColor(43, blanc);
-  led.setPixelColor(44, blanc);
-  led.setPixelColor(45, blanc);
-  led.setPixelColor(46, blanc);
-  led.setPixelColor(47, blanc);
-  led.setPixelColor(48, blanc);
-  led.show();
+  etatBouton2 = digitalRead(boutonon1);
+  if((etatBouton2 != memoire2) && (etatBouton2 == LOW))
+  {
+    colorBP2++;
+  }
+  memoire2 = etatBouton2;
+
+  if(dimensionBP > 1)
+  {
+    dimensionBP = 0;
+  }
+  taille(dimensionBP);
 }
 
 void couleurAlternatif()
@@ -368,7 +332,13 @@ void affiche(int valeurRecu)
       led.setBrightness(val);
       led.show();
 
-      //test des entrée
+  
+      
+      delay(100); //vitesse de l'animation
+    }
+  }
+
+    //test des entrée
       if(digitalRead(bouton1) == LOW)
       {
         mode = 1;
@@ -381,11 +351,100 @@ void affiche(int valeurRecu)
       { 
         mode = 3;
       }
-      
-      delay(100); //vitesse de l'animation
-    }
-  }
+}
 
+void taille(int tailleRecu)
+{
+  if(tailleRecu == 1)
+  {
+      val = analogRead(potensLin);
+  val = map(val, 0, 1023, 0, 255);
+  led.setBrightness(val);
+  led.setPixelColor(0, blanc);
+  led.setPixelColor(1, blanc);
+  led.setPixelColor(2, blanc);
+  led.setPixelColor(3, blanc);
+  led.setPixelColor(4, blanc);
+  led.setPixelColor(5, blanc);
+  led.setPixelColor(6, blanc);
+  led.setPixelColor(7, blanc);
+  led.setPixelColor(8, blanc);
+  led.setPixelColor(9, blanc);
+  led.setPixelColor(10, blanc);
+  led.setPixelColor(11, blanc);
+  led.setPixelColor(12, blanc);
+  led.setPixelColor(13, blanc);
+  led.setPixelColor(14, blanc);
+  led.setPixelColor(15, blanc);
+  led.setPixelColor(16, blanc);
+  led.setPixelColor(17, blanc);
+  led.setPixelColor(18, blanc);
+  led.setPixelColor(19, blanc);
+  led.setPixelColor(20, blanc);
+  led.setPixelColor(21, blanc);
+  led.setPixelColor(22, blanc);
+  led.setPixelColor(23, blanc);
+  led.setPixelColor(24, blanc);
+  led.setPixelColor(25, blanc);
+  led.setPixelColor(26, blanc);
+  led.setPixelColor(27, blanc);
+  led.setPixelColor(28, blanc);
+  led.setPixelColor(29, blanc);
+  led.setPixelColor(30, blanc);
+  led.setPixelColor(31, blanc);
+  led.setPixelColor(32, blanc);
+  led.setPixelColor(33, blanc);
+  led.setPixelColor(34, blanc);
+  led.setPixelColor(35, blanc);
+  led.setPixelColor(36, blanc);
+  led.setPixelColor(37, blanc);
+  led.setPixelColor(38, blanc);
+  led.setPixelColor(39, blanc);
+  led.setPixelColor(40, blanc);
+  led.setPixelColor(41, blanc);
+  led.setPixelColor(42, blanc);
+  led.setPixelColor(43, blanc);
+  led.setPixelColor(44, blanc);
+  led.setPixelColor(45, blanc);
+  led.setPixelColor(46, blanc);
+  led.setPixelColor(47, blanc);
+  led.setPixelColor(48, blanc);
+  led.show();
+  }
+  
+  if(tailleRecu == 0)
+  {
+      val = analogRead(potensLin);
+  val = map(val, 0, 1023, 0, 255);
+  led.setBrightness(val);
+  led.setPixelColor(15, blanc);
+  led.setPixelColor(16, blanc);
+  led.setPixelColor(17, blanc);
+  led.setPixelColor(18, blanc);
+  led.setPixelColor(19, blanc);
+  led.setPixelColor(20, blanc);
+  led.setPixelColor(21, blanc);
+  led.setPixelColor(22, blanc);
+  led.setPixelColor(23, blanc);
+  led.setPixelColor(24, blanc);
+  led.setPixelColor(25, blanc);
+  led.setPixelColor(26, blanc);
+  led.setPixelColor(27, blanc);
+  led.setPixelColor(28, blanc);
+  led.setPixelColor(29, blanc);
+  led.setPixelColor(30, blanc);
+  led.setPixelColor(31, blanc);
+  led.setPixelColor(32, blanc);
+  led.setPixelColor(33, blanc);
+  led.setPixelColor(34, blanc);
+  led.setPixelColor(35, blanc);
+  led.setPixelColor(36, blanc);
+  led.setPixelColor(37, blanc);
+  led.setPixelColor(38, blanc);
+  led.setPixelColor(39, blanc);
+  led.show();
+  }
+  
 }
 
 /*
