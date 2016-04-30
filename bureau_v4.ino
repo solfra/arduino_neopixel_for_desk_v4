@@ -417,6 +417,21 @@ void taille(int tailleRecu)
       val = analogRead(potensLin);
   val = map(val, 0, 1023, 0, 255);
   led.setBrightness(val);
+  led.setPixelColor(0, noir);
+  led.setPixelColor(1, noir);
+  led.setPixelColor(2, noir);
+  led.setPixelColor(3, noir);
+  led.setPixelColor(4, noir);  
+  led.setPixelColor(5, noir);
+  led.setPixelColor(6, noir);
+  led.setPixelColor(7, noir);
+  led.setPixelColor(8, noir);
+  led.setPixelColor(9, noir);
+  led.setPixelColor(10, noir);
+  led.setPixelColor(11, noir);
+  led.setPixelColor(12, noir);
+  led.setPixelColor(13, noir);
+  led.setPixelColor(14, noir);
   led.setPixelColor(15, blanc);
   led.setPixelColor(16, blanc);
   led.setPixelColor(17, blanc);
@@ -442,6 +457,15 @@ void taille(int tailleRecu)
   led.setPixelColor(37, blanc);
   led.setPixelColor(38, blanc);
   led.setPixelColor(39, blanc);
+  led.setPixelColor(40, noir);
+  led.setPixelColor(41, noir);
+  led.setPixelColor(42, noir);
+  led.setPixelColor(43, noir);
+  led.setPixelColor(44, noir);
+  led.setPixelColor(45, noir);
+  led.setPixelColor(46, noir);
+  led.setPixelColor(47, noir);
+  led.setPixelColor(48, noir);
   led.show();
   }
   
